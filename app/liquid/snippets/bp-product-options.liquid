@@ -1,0 +1,51 @@
+<div class="bp-product-options">
+    <div class="bp-product-options__color">
+      <div class="bp-product-options__title">Color</div>
+      <div class="bp-product-options__list js-pump-product-color">
+        {% for variant in product.variants %}
+          {% if variant.option1 == 'Double' and variant.option2 == 'White' or variant.option2 == 'Gray' %}
+            {% if forloop.first == true %}
+              {% assign label_color = 'white' %}
+              {% assign label_name = 'Soft White' %}
+            {% else %}
+              {% assign label_color = 'gray' %}
+              {% assign label_name = 'Quiet Gray' %}
+            {% endif %}
+            <div class="bp-product-option">
+              <input type="radio" id="pump{{ variant.id }}" class="bp-product-option__input js-pump-product-option-color" value="{{ variant.id }}" name="id[]"{% if forloop.first == true %} checked {% endif %} />
+              <label class="bp-product-option__label bp-product-option__label--{{ label_color }}" for="pump{{ variant.id }}">{{ label_name }}</label>
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% assign label_color = nil %}
+        {% assign label_name = nil %}
+      </div>
+    </div>
+    <div class="bp-product-options__flange js-pump-product-flange">
+      <div class="bp-product-options__title">
+        Flange
+        <a href="#beta-program" class="bp-product-options__size-guide js-size-guide-button" data-lightbox-id="#find-size">Size Guide</a>
+      </div>
+      <div class="bp-product-options__list">
+        {% if product.title contains '2.0' %}
+          {% assign flange = all_products.flange-2-0-2-pack %}
+        {% else %}
+          {% assign flange = all_products.flange %}
+        {% endif %}
+        {% for variant in flange.variants %}
+          {% if variant.option1 == '24mm' %}
+            <div class="bp-product-option">
+              <input type="radio" id="flange{{ variant.id }}" class="bp-product-option__input js-pump-product-option-flange" value="0" data-sku="null" name="flange[]"{% if forloop.first == true %} checked {% endif %} />
+              <label class="bp-product-option__label bp-product-option__label--24mm" for="flange{{ variant.id }}">24mm</label>
+            </div>
+          {% elsif variant.option1 == '27mm' %}
+            <div class="bp-product-option">
+              <input type="radio" id="flange{{ variant.id }}" class="bp-product-option__input js-pump-product-option-flange" value="{{ variant.price }}" data-sku="{{ variant.id }}" name="flange[]"{% if forloop.first == true %} checked {% endif %} />
+              <label class="bp-product-option__label bp-product-option__label--27mm" for="flange{{ variant.id }}">27mm</label>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% include 'size-guide-modal' %}

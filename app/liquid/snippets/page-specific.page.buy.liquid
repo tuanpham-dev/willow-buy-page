@@ -1,0 +1,101 @@
+<script>
+  window.lazySizesConfig = window.lazySizesConfig || {};
+
+  //page is optimized for fast onload event
+  lazySizesConfig.loadMode = 1;
+</script>
+
+<style>
+  .lazyload,
+  .lazyloading {
+    opacity: 0;
+  }
+
+  .lazyloaded {
+    opacity: 1;
+  }
+</style>
+
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
+{{ '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/unveilhooks/ls.unveilhooks.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/bgset/ls.bgset.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes.min.js' | script_tag }}
+
+<script>
+  $(document).ready(function() {
+    // images slider
+    var $slider = $('.js-bp-images-slider');
+    var $nav = $('.js-bp-images-nav');
+
+    $slider.slick({
+      arrows: false,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      autoplay: true,
+      autoplaySpeed: 5000,
+      asNavFor: $nav
+    });
+
+    $nav.slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: $slider,
+      dots: false,
+      arrows: false,
+      infinite: true,
+      centerMode: true,
+      focusOnSelect: true,
+      variableWidth: true
+    });
+
+  //
+  var $awardsSliders = $('.js-bp-product-awards-slider');
+
+  $awardsSliders.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    centerMode: true,
+    focusOnSelect: true,
+    variableWidth: true,
+    nextArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--next"></a>',
+    prevArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--prev"></a>'
+  });
+
+    // fix responsive tab
+    var $window = $(window);
+    var fixResponsiveTab = () => {
+      if ($window.width() < 768) {
+        $('.bp-tabs__checkbox').attr('type', 'checkbox');
+      } else {
+        var $checkboxes = $('.bp-tabs__checkbox');
+
+        $checkboxes.attr('type', 'radio');
+
+        if (!$checkboxes.is(':checked')) {
+          $checkboxes.first().prop('checked', true);
+        }
+      }
+    }
+
+    $window.on('resize', fixResponsiveTab);
+    $window.trigger('resize');
+
+    // affirm financing
+    _affirm_config = {
+      public_api_key: "K0BBOJJDQDXNN964",
+      script: "https://cdn1.affirm.com/js/v2/affirm.js"
+    };
+    (function (l, g, m, e, a, f, b) { var d, c = l[m] || {}, h = document.createElement(f), n = document.getElementsByTagName(f)[0], k = function (a, b, c) { return function () { a[b]._.push([c, arguments]) } }; c[e] = k(c, e, "set"); d = c[e]; c[a] = {}; c[a]._ = []; d._ = []; c[a][b] = k(c, a, b); a = 0; for (b = "set add save post open empty reset on off trigger ready setProduct".split(" "); a < b.length; a++)d[b[a]] = k(c, e, b[a]); a = 0; for (b = ["get", "token", "url", "items"]; a < b.length; a++)d[b[a]] = function () { }; h.async = !0; h.src = g[f]; n.parentNode.insertBefore(h, n); delete g[f]; d(g); l[m] = c })(window, _affirm_config, "affirm", "checkout", "ui", "script", "ready");
+    console.log("after affirm");
+  });
+</script>

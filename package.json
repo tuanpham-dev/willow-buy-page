@@ -1,0 +1,23 @@
+{
+  "name": "willow-buy-page",
+  "version": "1.0.0",
+  "description": "New buy page design for Willow Pump.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanpham-dev/willow-buy-page.git"
+  },
+  "author": "Tuan Pham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanpham-dev/willow-buy-page/issues"
+  },
+  "homepage": "https://github.com/tuanpham-dev/willow-buy-page#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  }
+}

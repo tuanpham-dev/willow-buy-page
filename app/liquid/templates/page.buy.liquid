@@ -1,0 +1,99 @@
+<!-- template/page.buy.liquid -->
+{% comment %}
+  - Hardcoded product version 2.0
+{% endcomment %}
+{% assign product_handle = 'the-willow-pump-2-1' %}
+{% comment %}
+  - Hardcoded product images.
+{% endcomment %}
+{% assign product_images = 'pdp-carousel-jayme.jpg|pdp-carousel-phone.jpg|pdp-carousel-expanded.jpg|pdp-carousel-milk-bag.jpg|pdp-carousel-jayme-button.jpg|pdp-carousel-katie.jpg|pdp-carousel-pumps-desk.jpg' | split: '|' %}
+{% assign iter = product_images | size %}
+{% assign iter = iter | minus : 1 %}
+
+{% comment %}
+  - `bp-` class prefix stands for `buy-page`
+{% endcomment %}
+<section class="buy-page">
+  <div class="buy-page__inner">
+    <section class="bp-product-wrapper">
+      <div class="bp-product-wrapper__inner">
+        <div class="bp-images">
+          <div class="bp-images__inner">
+            <div class="bp-images-slider js-bp-images-slider">
+              {% for i in (0..iter) %}
+                <div class="bp-images-slider__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : '600x' }} 500w,
+                    {{ product_images[i] | asset_img_url : '1000x' }} 700w,
+                    {{ product_images[i] | asset_img_url }} 1000w" data-sizes="auto">
+                </div>
+              {% endfor %}
+            </div>
+            <div class="bp-images-nav js-bp-images-nav">
+              {% for i in (0..iter) %}
+                <div class="bp-images-nav__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : '100x' }}" data-sizes="auto">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="bp-product">
+          <div class="bp-product__inner">
+            <h1 class="bp-product__title">Willow<sup>®</sup> Wearable Breast Pump</h1>
+            <div class="bp-product__subtitle">
+              <a href="#" class="bp-product__subtitle-link js-bp-product-subtitle-link">Generation 2.0</a>
+            </div>
+            <div class="bp-product__description">
+              <p>A self-contained, rechargeable battery-powered breast pump, designed to wear discreetly inside a regular nursing bra under clothing, for fully hands-free pumping.</p>
+            </div>
+            <div class="bp-product__variants">
+              <div class="bp-product-variants__inner">
+                <form class="bp-product__form" action="/cart/add" method="post" enctype="multipart/form-data">
+                  {% assign product = all_products[product_handle] %}
+                  {% include 'bp-product-options' %}
+                  {% assign product = nil %}
+
+                  {% assign flange = all_products.flange %}
+                  {% for variant in flange.variants %}
+                    {% if variant.option1 == '24mm' %}
+                      <input type="checkbox" name="id[]" class="add-to-cart-checkbox js-flange-sku" checked="checked" value="{{ variant.id }}" disabled>
+                    {% endif %}
+                  {% endfor %}
+                  {% assign flange = nil %}
+                </form>
+              </div>
+            </div>
+            <div class="bp-product__price">$499.99</div>
+            <div class="bp-product__finacing">
+              <p onclick="//ga('send', 'event', 'Affirm', 'Clicked Learn More', 'Learn More - Product Page');" class="affirm-as-low-as affirm-as-low-as-pump" data-promo-id="promo_set_zero_pct_6" data-amount="49999" required></p>
+            </div>
+            <button class="bp-product__add-cart-button js-bp-product-add-to-cart">Add to Bag</button>
+            <div class="bp-product__info">
+              <div class="bp-product__shipping-info">
+                <div class="bp-product__shipping-title">Free Shipping on all Pumps.</div>
+                <div class="bp-product__fsa">FSA/HSA reimbursement eligible.</div>
+              </div>
+              <div class="bp-product__help">
+                <div class="bp-product__help-title">
+                  <img class="bp-product__help-icon lazyload" alt="" data-src="{{ 'icon-help.svg.liquid' | asset_url }}" />
+                  <span>Need help deciding?</span>
+                </div>
+                <div class="bp-product__help-contact">
+                  Call 1-888-WILLOW-3 or <a class="bp-product__chat-link js-bp-product-chat-link" href="">chat now.</a>
+                </div>
+              </div>
+            </div>
+            <div class="bp-product__add-list-button">
+              <img class="bp-product__add-list-icon lazyload" alt="" data-src="{{ 'icon-heart.svg.liquid' | asset_url }}" />
+              <a class="bp-product__add-list-link" href="">Add to Babylist</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include 'bp-product-bottom' %}
+  </div>
+</section>
+
+{% assign product_handle = nil %}
+{% assign product_images = nil %}
+{% assign iter = nil %}
