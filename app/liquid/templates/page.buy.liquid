@@ -21,9 +21,18 @@
           <div class="bp-images__inner">
             <div class="bp-images-slider js-bp-images-slider">
               {% for i in (0..iter) %}
-                <div class="bp-images-slider__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : '600x' }} 500w,
-                    {{ product_images[i] | asset_img_url : '1000x' }} 700w,
-                    {{ product_images[i] | asset_img_url }} 1000w" data-sizes="auto">
+                <div class="bp-images-slider__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : '300x' }} 300w,
+                    {{ product_images[i] | asset_img_url : '400x' }} 400w,
+                    {{ product_images[i] | asset_img_url : '500x' }} 500w,
+                    {{ product_images[i] | asset_img_url : '600x' }} 600w,
+                    {{ product_images[i] | asset_img_url : '700x' }} 700w,
+                    {{ product_images[i] | asset_img_url : '800x' }} 800w,
+                    {{ product_images[i] | asset_img_url : '900x' }} 900w,
+                    {{ product_images[i] | asset_img_url : '1000x' }} 1000w,
+                    {{ product_images[i] | asset_img_url : '1200x' }} 1200w,
+                    {{ product_images[i] | asset_img_url : '1400x' }} 1400w,
+                    {{ product_images[i] | asset_img_url : '1600x' }} 1600w,
+                    {{ product_images[i] | asset_img_url }} 1800w" data-sizes="auto">
                 </div>
               {% endfor %}
             </div>
@@ -40,13 +49,14 @@
             <h1 class="bp-product__title">Willow<sup>®</sup> Wearable Breast Pump</h1>
             <div class="bp-product__subtitle">
               <a href="#" class="bp-product__subtitle-link js-bp-product-subtitle-link">Generation 2.0</a>
+              {% include 'bp-generation-2-popup' %}
             </div>
             <div class="bp-product__description">
               <p>A self-contained, rechargeable battery-powered breast pump, designed to wear discreetly inside a regular nursing bra under clothing, for fully hands-free pumping.</p>
             </div>
             <div class="bp-product__variants">
               <div class="bp-product-variants__inner">
-                <form class="bp-product__form" action="/cart/add" method="post" enctype="multipart/form-data">
+                <form class="bp-product__form js-bp-product-form" action="/cart/add" method="post" enctype="multipart/form-data">
                   {% assign product = all_products[product_handle] %}
                   {% include 'bp-product-options' %}
                   {% assign product = nil %}
@@ -62,7 +72,7 @@
               </div>
             </div>
             <div class="bp-product__price">$499.99</div>
-            <div class="bp-product__finacing">
+            <div class="bp-product__financing">
               <p onclick="//ga('send', 'event', 'Affirm', 'Clicked Learn More', 'Learn More - Product Page');" class="affirm-as-low-as affirm-as-low-as-pump" data-promo-id="promo_set_zero_pct_6" data-amount="49999" required></p>
             </div>
             <button class="bp-product__add-cart-button js-bp-product-add-to-cart">Add to Bag</button>
@@ -73,7 +83,7 @@
               </div>
               <div class="bp-product__help">
                 <div class="bp-product__help-title">
-                  <img class="bp-product__help-icon lazyload" alt="" data-src="{{ 'icon-help.svg.liquid' | asset_url }}" />
+                  <img class="bp-product__help-icon lazyload" alt="" data-src="{{ 'icon-help.svg' | asset_url }}" />
                   <span>Need help deciding?</span>
                 </div>
                 <div class="bp-product__help-contact">
@@ -82,7 +92,7 @@
               </div>
             </div>
             <div class="bp-product__add-list-button">
-              <img class="bp-product__add-list-icon lazyload" alt="" data-src="{{ 'icon-heart.svg.liquid' | asset_url }}" />
+              <img class="bp-product__add-list-icon lazyload" alt="" data-src="{{ 'icon-heart.svg' | asset_url }}" />
               <a class="bp-product__add-list-link" href="">Add to Babylist</a>
             </div>
           </div>

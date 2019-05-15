@@ -6,18 +6,38 @@
       <div class="bp-tabs__content bp-tabs__content--how-it-works">
         <div class="bp-tabs-row">
           <div class="bp-tabs__image">
-              <img alt="" class="bp-tabs__img bp-tabs__img--desktop lazyload" data-srcset="{{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '600x' }} 500w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1000x' }} 700w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url }} 1000w" />
-              <img alt="" class="bp-tabs__img bp-tabs__img--mobile lazyload" data-srcset="{{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '600x' }}" />
-            </div>
-            <div class="bp-tabs__text">
-              <ul class="bp-tabs__list">
-                <li>Willow is unique because everything works inside the Pump and inside your bra, with no external tubes, cords, or dangling bottles to hold you back</li>
-                <li>Align Willow with your breast and secure inside your nursing bra.  Milk flows into the spill-proof Milk Bag tucked securely inside the Pump.</li>
-                <li>Pump wherever the day takes you! Lie down or bend over – pump in any position without leaking</li>
-              </ul>
-            </div>
+            <img alt="" class="bp-tabs__img bp-tabs__img--desktop lazyload" data-srcset="{{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '300x' }} 300w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '400x' }} 400w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '500x' }} 500w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '600x' }} 600w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '700x' }} 700w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '800x' }} 800w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '900x' }} 900w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1000x' }} 1000w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1200x' }} 1200w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1400x' }} 1400w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1600x' }} 1600w,
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url }} 1800w" data-sizes="auto" />
+            <img alt="" class="bp-tabs__img bp-tabs__img--mobile lazyload" data-srcset="{{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '300x' }} 300w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '400x' }} 400w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '500x' }} 500w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '600x' }} 600w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '700x' }} 700w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '800x' }} 800w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '900x' }} 900w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1000x' }} 1000w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1200x' }} 1200w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1400x' }} 1400w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1600x' }} 1600w,
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url }} 1800w" data-sizes="auto" />
+          </div>
+          <div class="bp-tabs__text">
+            <ul class="bp-tabs__list">
+              <li>Willow is unique because everything works inside the Pump and inside your bra, with no external tubes, cords, or dangling bottles to hold you back</li>
+              <li>Align Willow with your breast and secure inside your nursing bra.  Milk flows into the spill-proof Milk Bag tucked securely inside the Pump.</li>
+              <li>Pump wherever the day takes you! Lie down or bend over – pump in any position without leaking</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -39,13 +59,13 @@
       <label class="bp-tabs__title" for="bp-tabs__details" tabindex="0">Details</label>
       <div class="bp-tabs__content bp-tabs__content--details">
         <ul class="bp-tabs__list">
-            <li>Product size [FPO]</li>
-            <li>Connects to the Willow App, compatible with Ios</li>
-            <li>Only two parts to clean. Dishwasher safe.</li>
-            <li>BPA Free</li>
-            <li>Rechargeable. Battery charge lasts up to 5 pumping sessions</li>
-            <li>One year warranty from first use.</li>
-          </ul>
+          <li>Product size [FPO]</li>
+          <li>Connects to the Willow App, compatible with Ios</li>
+          <li>Only two parts to clean. Dishwasher safe.</li>
+          <li>BPA Free</li>
+          <li>Rechargeable. Battery charge lasts up to 5 pumping sessions</li>
+          <li>One year warranty from first use.</li>
+        </ul>
       </div>
 
       <input type="radio" class="bp-tabs__checkbox" name="bp-tabs" id="bp-tabs__faqs" />
@@ -94,9 +114,12 @@
 
       {% for i in (0..n) %}
         <div class="bp-product-awards__slide">
-          <img class="bp-product-awards__img lazyload" alt="" data-srcset="{{ awards_images[i] | asset_img_url2 : '500x' }} 500w" />
+          <img class="bp-product-awards__img lazyload" alt="" data-srcset="{{ awards_images[i] | asset_img_url2 }}" />
         </div>
       {% endfor %}
+
+      {% assign awards_images = nil %}
+      {% assign n = nil %}
     </div>
   </div>
 </section>

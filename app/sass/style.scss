@@ -29,13 +29,16 @@ $bp-border-color: #d8d8d8;
 @mixin bp-link {
   color: $bp-accent-color;
   text-decoration: underline;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 @mixin bp-wrapper {
   margin: 0 auto;
-  padding: 0;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 0 25px;
 
   @media #{$m-query} {
     padding-left: 50px;
@@ -189,8 +192,7 @@ $bp-border-color: #d8d8d8;
   line-height: 1;
   text-align: center;
   width: 90%;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;
 
   @media #{$ml-query} {
     font-size: 36px;
@@ -274,7 +276,7 @@ $bp-border-color: #d8d8d8;
       position: absolute;
       width: 43px;
       height: 43px;
-      top: 0px;
+      top: 0;
       left: 0;
       border-radius: 50%;
       border: 1px solid $bp-border-color;
@@ -408,7 +410,7 @@ $bp-border-color: #d8d8d8;
   text-align: center;
 }
 
-.bp-product__finacing {
+.bp-product__financing {
   margin-bottom: 20px;
   text-align: center;
 
@@ -503,6 +505,7 @@ $bp-border-color: #d8d8d8;
 .bp-product-details {
   padding-top: 0;
   padding-bottom: 0;
+  background: #fff;
 
   @media #{$m-query} {
     padding-top: 60px;
@@ -572,7 +575,6 @@ $bp-border-color: #d8d8d8;
     padding: 25px;
     margin-left: -25px;
     margin-right: -25px;
-    position: static;
     top: unset;
     border-top: 1px solid $bp-border-color;
     position: relative;
@@ -585,7 +587,7 @@ $bp-border-color: #d8d8d8;
       top: 50%;
       margin-top: -6px;
       right: 45px;
-      background: url('icon-arrow-down.svg') no-repeat;
+      background: url("icon-arrow-down.svg") no-repeat;
       transition: transform 0.2s;
     }
 
@@ -747,7 +749,7 @@ $bp-border-color: #d8d8d8;
   height: 50px;
   top: 50%;
   margin-top: -25px;
-  background: url(icon-arrow-left.svg) no-repeat;
+  background: url("icon-arrow-left.svg") no-repeat;
   opacity: 0.6;
   transition: opacity 0.2s;
   z-index: 1;

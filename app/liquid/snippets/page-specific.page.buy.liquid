@@ -25,8 +25,8 @@
 <script>
   $(document).ready(function() {
     // images slider
-    var $slider = $('.js-bp-images-slider');
-    var $nav = $('.js-bp-images-nav');
+    const $slider = $('.js-bp-images-slider');
+    const $nav = $('.js-bp-images-nav');
 
     $slider.slick({
       arrows: false,
@@ -52,28 +52,28 @@
       variableWidth: true
     });
 
-  //
-  var $awardsSliders = $('.js-bp-product-awards-slider');
+    // awards section slider
+    const $awardsSliders = $('.js-bp-product-awards-slider');
 
-  $awardsSliders.slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    centerMode: true,
-    focusOnSelect: true,
-    variableWidth: true,
-    nextArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--next"></a>',
-    prevArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--prev"></a>'
-  });
+    $awardsSliders.slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      centerMode: true,
+      focusOnSelect: true,
+      variableWidth: true,
+      nextArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--next"></a>',
+      prevArrow: '<a href="#" class="bp-product-awards__slider-arrow bp-product-awards__slider-arrow--prev"></a>'
+    });
 
     // fix responsive tab
-    var $window = $(window);
-    var fixResponsiveTab = () => {
+    const $window = $(window);
+    const fixResponsiveTab = () => {
       if ($window.width() < 768) {
         $('.bp-tabs__checkbox').attr('type', 'checkbox');
       } else {
@@ -85,10 +85,83 @@
           $checkboxes.first().prop('checked', true);
         }
       }
-    }
+    };
 
     $window.on('resize', fixResponsiveTab);
     $window.trigger('resize');
+
+    // Assign the flange change option
+    const $flangeSelect = $('input[name="flange[]"]');
+
+    $flangeSelect.change(function() {
+      const sku = $(this).attr('data-sku');
+      const $flangeInput = $(this).closest('form').find('.js-flange-sku');
+
+      if (sku !== 'null') {
+        $flangeInput.removeAttr('disabled');
+      } else {
+        $flangeInput.attr('disabled', 'disabled');
+      }
+    });
+
+    // add to cart button
+    const $addCartBtn = $('.js-bp-product-add-to-cart');
+    const $form = $('.js-bp-product-form');
+
+    $addCartBtn.on('click', function() {
+      $form.submit();
+    });
+
+    // Modal
+    const modalActiveClass = 'reskin-modal--active';
+    const modalActiveBodyClass = 'is-reskin-modal-active';
+    const $sizeGuideModal = $('.js-size-guide-modal');
+    const $sizeGuideModalCloseButton = $('.js-size-guide-close');
+    const $sizeGuideButton = $('.js-size-guide-button');
+
+    if ($sizeGuideModal.length) {
+      if ($sizeGuideButton.length) {
+        $sizeGuideButton.on('click', function (e) {
+          e.preventDefault();
+          showModal($sizeGuideModal);
+        });
+      }
+      if ($sizeGuideModalCloseButton.length) {
+        $sizeGuideModalCloseButton.on('click', function (e) {
+          e.preventDefault();
+          hideModal($sizeGuideModal);
+        });
+      }
+    }
+
+    var showModal = function ($modal) {
+      $modal.addClass(modalActiveClass);
+      $('body').addClass(modalActiveBodyClass);
+      // click.closeModal is a jquery Namespace feature that allows us to
+      // safely remove this specific click event without unintentially destroying
+      // other event listeners
+      // @see https://stackoverflow.com/questions/28167017/remove-specific-jquery-click-event-from-element
+      $nav.on('click.closeModal', function (e) {
+        hideModal($modal)
+      })
+    };
+
+    var hideModal = function ($modal) {
+      $modal.removeClass(modalActiveClass);
+      $('body').removeClass(modalActiveBodyClass);
+      $nav.off('click.closeModal');
+    };
+
+    var scrollToEl = function(el, isOnDesktop) {
+      if (!el.length || ($(window).width() >= 768 && !isOnDesktop)) {
+        return;
+      }
+      var speed = 500;
+      var topOffset = $(window).width() >= 600 ? 160 : 105;
+      $('html, body').animate({
+        scrollTop: el.offset().top - topOffset
+      }, speed);
+    };
 
     // affirm financing
     _affirm_config = {
