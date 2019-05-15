@@ -134,6 +134,26 @@
       }
     }
 
+    // generation 2.0 modal
+    const $gen2Modal = $('.js-bp-modal-generation-2');
+    const $gen2ModalCloseButton = $('.js-bp-modal-close, .js-bp-modal-overlay');
+    const $gen2Button = $('.js-bp-generation-2-button');
+
+    if ($gen2Modal.length) {
+      if ($gen2Button.length) {
+        $gen2Button.on('click', function(e) {
+          e.preventDefault();
+          showModal($gen2Modal);
+        });
+      }
+      if ($gen2ModalCloseButton.length) {
+        $gen2ModalCloseButton.on('click', function(e) {
+          e.preventDefault();
+          hideModal($gen2Modal);
+        })
+      }
+    }
+
     var showModal = function ($modal) {
       $modal.addClass(modalActiveClass);
       $('body').addClass(modalActiveBodyClass);
