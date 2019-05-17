@@ -20,12 +20,13 @@ gulp.task('build', function() {
     .pipe(gulp.dest('./dist/shared/images'));
 
   gulp.src(['./app/liquid/**/*.liquid'])
-    .pipe(replace('asset_img_url2', 'asset_img_url'))
+    .pipe(replace('asset_img_url_local', 'asset_img_url'))
+    .pipe(replace('asset_url_local', 'asset_img_url'))
     .pipe(gulp.dest('./dist/shopify/dist'));
 
   return gulp.src('./app/sass/style.scss')
-    .pipe(replace(/url\(([^)]*)\)/, "url(#{'{{ $1 | asset_url }}'})"))
     .pipe(rename({ basename: 'buy-page-2.0'}))
+    .pipe(replace(/url\(([^\)]+)\)/g, "url(#{'{{ $1 | asset_url }}'})"))
     .pipe(gulp.dest('./dist/shared/css/reskin'));
 });
 

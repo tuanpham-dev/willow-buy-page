@@ -183,6 +183,7 @@ $bp-border-color: #d8d8d8;
 .bp-product__inner {
   max-width: 425px;
   margin: 0 auto;
+  display: grid;
 }
 
 .bp-product__title {
@@ -193,6 +194,7 @@ $bp-border-color: #d8d8d8;
   text-align: center;
   width: 90%;
   margin: 0 auto 10px;
+  order: 1;
 
   @media #{$ml-query} {
     font-size: 36px;
@@ -203,6 +205,7 @@ $bp-border-color: #d8d8d8;
 .bp-product__subtitle {
   margin-bottom: 15px;
   text-align: center;
+  order: 2;
 }
 
 .bp-product__subtitle-link {
@@ -210,7 +213,8 @@ $bp-border-color: #d8d8d8;
 }
 
 .bp-product__description {
-  text-align: left;
+  text-align: center;
+  order: 3;
 
   @media #{$ml-query} {
     max-width: 360px;
@@ -219,17 +223,26 @@ $bp-border-color: #d8d8d8;
 
   p {
     font-size: 14px;
+    margin-bottom: 10px;
 
     @media #{$ml-query} {
       font-size: 16px;
-      text-align: center;
+      margin-bottom: 24px;
     }
+  }
+}
+
+.bp-product__variants {
+  order: 6;
+
+  @media #{$ml-query} {
+    order: 4;
   }
 }
 
 .bp-product-options {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   text-align: left;
 
   @media #{$ml-query} {
@@ -406,13 +419,28 @@ $bp-border-color: #d8d8d8;
 }
 
 .bp-product__price {
-  font-size: 36px;
+  font-size: 25px;
   text-align: center;
+  order: 4;
+
+  @media #{$ml-query} {
+    font-size: 36px;
+    order: 5;
+  }
 }
 
 .bp-product__financing {
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $bp-border-color;
   text-align: center;
+  order: 5;
+
+  @media #{$ml-query} {
+    order: 6;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
 
   .affirm-as-low-as-pump {
     @include bp-typography();
@@ -430,22 +458,23 @@ $bp-border-color: #d8d8d8;
   font-weight: 300;
   line-height: 40px;
   width: 100%;
-  max-width: 300px;
+  max-width: 425px;
   padding: 0;
   border-radius: 50px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  order: 7;
 
   @media #{$ml-query} {
-    max-width: 425px;
     line-height: 45px;
   }
 }
 
 .bp-product__info {
   text-align: center;
+  order: 8;
 
   @media #{$ml-query} {
     display: flex;
@@ -483,6 +512,7 @@ $bp-border-color: #d8d8d8;
 
 .bp-product__add-list-button {
   text-align: center;
+  order: 9;
 
   @media #{$ml-query} {
     text-align: left;
@@ -548,7 +578,7 @@ $bp-border-color: #d8d8d8;
   .bp-tabs__checkbox:checked {
     + .bp-tabs__title {
       &:after {
-        transform: rotate(180deg);
+        background-image: url("icon-minus.svg");
       }
 
       @media #{$m-query} {
@@ -582,12 +612,12 @@ $bp-border-color: #d8d8d8;
     &:after {
       content: '';
       position: absolute;
-      width: 18px;
-      height: 12px;
+      width: 17px;
+      height: 17px;
       top: 50%;
       margin-top: -6px;
       right: 45px;
-      background: url("icon-arrow-down.svg") no-repeat;
+      background: url("icon-plus.svg") no-repeat;
       transition: transform 0.2s;
     }
 
@@ -662,6 +692,7 @@ $bp-border-color: #d8d8d8;
 
 .bp-tabs__text {
   @media #{$m-query} {
+    flex: 1;
     max-width: 440px;
     padding-left: 20px;
   }
@@ -815,7 +846,7 @@ $bp-border-color: #d8d8d8;
   height: auto;
   max-height: 100%;
   max-width: 350px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   z-index: 2;
 
   @media #{$s-query} {
@@ -896,4 +927,21 @@ $bp-border-color: #d8d8d8;
 .bp-modal__img {
   display: block;
   margin: 20px auto 10px;
+}
+
+// Fix size guide modal problem.
+.buy-page {
+  .reskin-modal {
+    top: 105px;
+    height: calc(100vh - 104px);
+
+    @media #{$ml-query} {
+      top: 140px;
+      height: calc(100vh - 140px);
+    }
+  }
+
+  .reskin-modal__container {
+    overflow-y: hidden;
+  }
 }

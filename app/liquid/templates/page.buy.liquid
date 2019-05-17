@@ -21,18 +21,13 @@
           <div class="bp-images__inner">
             <div class="bp-images-slider js-bp-images-slider">
               {% for i in (0..iter) %}
-                <div class="bp-images-slider__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : '300x' }} 300w,
-                    {{ product_images[i] | asset_img_url : '400x' }} 400w,
-                    {{ product_images[i] | asset_img_url : '500x' }} 500w,
-                    {{ product_images[i] | asset_img_url : '600x' }} 600w,
-                    {{ product_images[i] | asset_img_url : '700x' }} 700w,
-                    {{ product_images[i] | asset_img_url : '800x' }} 800w,
-                    {{ product_images[i] | asset_img_url : '900x' }} 900w,
-                    {{ product_images[i] | asset_img_url : '1000x' }} 1000w,
-                    {{ product_images[i] | asset_img_url : '1200x' }} 1200w,
-                    {{ product_images[i] | asset_img_url : '1400x' }} 1400w,
-                    {{ product_images[i] | asset_img_url : '1600x' }} 1600w,
-                    {{ product_images[i] | asset_img_url }} 1800w" data-sizes="auto">
+                <div class="bp-images-slider__slide lazyload" data-bgset="{{ product_images[i] | asset_img_url : 'x300' }} 300w,
+                    {{ product_images[i] | asset_img_url : 'x400' }} 400w,
+                    {{ product_images[i] | asset_img_url : 'x500' }} 500w,
+                    {{ product_images[i] | asset_img_url : 'x600' }} 600w,
+                    {{ product_images[i] | asset_img_url : 'x700' }} 700w,
+                    {{ product_images[i] | asset_img_url : 'x800' }} 800w,
+                    {{ product_images[i] | asset_url }} x900" data-sizes="auto">
                 </div>
               {% endfor %}
             </div>

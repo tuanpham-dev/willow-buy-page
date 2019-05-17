@@ -14,10 +14,7 @@
                   {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '800x' }} 800w,
                   {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '900x' }} 900w,
                   {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1000x' }} 1000w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1200x' }} 1200w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1400x' }} 1400w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url : '1600x' }} 1600w,
-                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_img_url }} 1800w" data-sizes="auto" />
+                  {{ 'reskin-product-landingpage-features-hassle-free.jpg' | asset_url }} 1100w" data-sizes="auto" />
             <img alt="" class="bp-tabs__img bp-tabs__img--mobile lazyload" data-srcset="{{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '300x' }} 300w,
                   {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '400x' }} 400w,
                   {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '500x' }} 500w,
@@ -26,10 +23,7 @@
                   {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '800x' }} 800w,
                   {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '900x' }} 900w,
                   {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1000x' }} 1000w,
-                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1200x' }} 1200w,
-                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1400x' }} 1400w,
-                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url : '1600x' }} 1600w,
-                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_img_url }} 1800w" data-sizes="auto" />
+                  {{ 'reskin-product-landingpage-illustration-2.png' | asset_url }} 1100w" data-sizes="auto" />
           </div>
           <div class="bp-tabs__text">
             <ul class="bp-tabs__list">
@@ -44,15 +38,26 @@
       <input type="radio" class="bp-tabs__checkbox" name="bp-tabs" id="bp-tabs__whats-included" />
       <label class="bp-tabs__title" for="bp-tabs__whats-included" tabindex="0">What's Included</label>
       <div class="bp-tabs__content bp-tabs__content--whats-included">
-        <ul class="bp-tabs__list bp-tabs__list--unstyled">
-          <li>2 Willow Pumps</li>
-          <li>2x 24mm Flanges <small class="bp-help-text">(27mm Flanges Ship Separately)</small></li>
-          <li>2 Flextubes™</li>
-          <li>Charger</li>
-          <li>24 4 oz. Milk Bags</li>
-          <li>2 Cleaning Brushes</li>
-          <li>2 Carrying Bags</li>
-        </ul>
+        <div class="bp-tabs-row">
+          <div class="bp-tabs__image">
+            <img alt="" class="bp-tabs__img lazyload" data-srcset="{{ 'reskin-page-buy-pump-kit.jpg' | asset_img_url : '300x' }} 300w,
+                {{ 'reskin-page-buy-pump-kit.jpg' | asset_img_url : '400x' }} 400w,
+                {{ 'reskin-page-buy-pump-kit.jpg' | asset_img_url : '500x' }} 500w,
+                {{ 'reskin-page-buy-pump-kit.jpg' | asset_img_url : '600x' }} 600w,
+                {{ 'reskin-page-buy-pump-kit.jpg' | asset_url }} 700w" data-sizes="auto" />
+          </div>
+          <div class="bp-tabs__text">
+            <ul class="bp-tabs__list bp-tabs__list--unstyled">
+              <li>2 Willow Pumps</li>
+              <li>2x 24mm Flanges <small class="bp-help-text">(27mm Flanges Ship Separately)</small></li>
+              <li>2 Flextubes™</li>
+              <li>Charger</li>
+              <li>24 4 oz. Milk Bags</li>
+              <li>2 Cleaning Brushes</li>
+              <li>2 Carrying Bags</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <input type="radio" class="bp-tabs__checkbox" name="bp-tabs" id="bp-tabs__details" />
@@ -114,7 +119,7 @@
 
       {% for i in (0..n) %}
         <div class="bp-product-awards__slide">
-          <img class="bp-product-awards__img lazyload" alt="" data-srcset="{{ awards_images[i] | asset_img_url2 }}" />
+          <img class="bp-product-awards__img lazyload" alt="" data-srcset="{{ awards_images[i] | asset_url }}" />
         </div>
       {% endfor %}
 

@@ -21,6 +21,8 @@
 {{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/unveilhooks/ls.unveilhooks.min.js' | script_tag }}
 {{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/plugins/bgset/ls.bgset.min.js' | script_tag }}
 {{ '//cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js' | script_tag }}
+{{ '//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css' | stylesheet_tag }}
 
 <script>
   $(document).ready(function() {
@@ -171,6 +173,10 @@
       $('body').removeClass(modalActiveBodyClass);
       $nav.off('click.closeModal');
     };
+
+    // custom scrollbar
+    new PerfectScrollbar('.reskin-modal__container');
+    new PerfectScrollbar('.bp-modal__container');
 
     var scrollToEl = function(el, isOnDesktop) {
       if (!el.length || ($(window).width() >= 768 && !isOnDesktop)) {
