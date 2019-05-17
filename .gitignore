@@ -1,5 +1,5 @@
 .idea
 dist
 node_modules
-app/assets/style.css
+docs/assets/style.css
 .DS_Store
