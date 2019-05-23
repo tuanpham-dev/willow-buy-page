@@ -559,6 +559,10 @@ $bp-border-color: #d8d8d8;
     padding-top: 60px;
     padding-bottom: 60px;
   }
+
+  a {
+    @include bp-link();
+  }
 }
 
 .bp-tabs {
